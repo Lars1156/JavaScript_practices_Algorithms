@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="output"></p>
+    <p id="Output"></p>
+    <script>
+        const sum = function(){
+            let a = 20 
+            let b = 10
+            document.getElementById('output').innerHTML = a+b + "addtion of 10 and 20"
+        }
+        sum();
+        const mul = function (a, b) {
+         return a * b;
+      }
+      let result = mul(4, 5);
+      document.getElementById("Output").innerHTML = 
+	  "The returned value from the function is " + result;
+    </script>
+</body>
+</html>
