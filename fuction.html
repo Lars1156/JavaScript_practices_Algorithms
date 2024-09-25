@@ -10,10 +10,25 @@
         function sayHello(){
             alert('hello this fuction')
         }
+        function Name (name, age){
+         document.write (name + " is " + age + " years old.");
+        }
+        function concatenate(first, last) {
+         var full;
+         full = first + last;
+         return full;
+      }
+      function secondFunction() {
+         var result;
+         result = concatenate('Zara ', 'Ali');
+         alert(result);
+      }  
     </script>
     <div>
         <form>
             <input type="button" value="sayHello" onclick="sayHello()">
+            <input type="button" value="Person" onclick="Name('kusga', 7)">
+            <input type="button" onclick="secondFunction()" value="Call Function">
         </form>
     </div>
 </body>
