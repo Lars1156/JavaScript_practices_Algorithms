@@ -9,6 +9,9 @@
     <p id="output">
 
     </p>
+    <p> Browser Information</p>
+    <p id = "demo"> </p>
+    <p>Please note you may get different result depending on your browser. </p>
     <script>
         let output = document.getElementById('output');
         function sum(p=2 , q =p*2 , r = p*q*2){
@@ -16,6 +19,22 @@
         }
         output.innerHTML = sum(5,10,15)
         output.innerHTML = sum(5,10);
+       
+   
+	  document.getElementById("demo").innerHTML = 
+	  "App Name: " + window.navigator.appName + "<br>" +
+	  "App Code Name: " + window.navigator.appCodeName + "<br>" +
+	  "App Version: " + window.navigator.appVersion + "<br>" +
+	  "Cookie Enabled: " + window.navigator.cookieEnabled + "<br>" +
+	  "Language: " + window.navigator.language + "<br>" + 
+	  "Plugins: " + window.navigator.plugins + "<br>" +
+	  "mimeTypes[]: " + window.navigator.mimeTypes + "<br>" +
+	  "platform: " + window.navigator.platform + "<br>" +
+	  "online: " + window.navigator.online + "<br>" +
+	  "product: " + window.navigator.product + "<br>" +   
+	  "userAgent: " + window.navigator.userAgent;
+  
+       
     </script>
 </body>
 </html>
