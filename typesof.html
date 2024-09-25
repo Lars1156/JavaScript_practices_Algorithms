@@ -8,10 +8,16 @@
 <body>
     <div id="output"></div>
     <div id="op"></div>
+    <div id="Output"></div>
      <script>
         let num = 12;
         let name = "kishan"
         let bool  = true;
+        let person = {
+        Name:'kishan',
+        age:23
+        }
+        document.getElementById('Output').innerHTML = typeof person;
         document.getElementById('output').innerHTML = typeof num;
         document.getElementById('op').innerHTML = typeof name;
         document.getElementById('output').innerHTML = typeof bool;
