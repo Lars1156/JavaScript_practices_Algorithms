@@ -3,55 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Even and Odd Numbers</title>
+    <title>Document</title>
 </head>
 <body>
     <h2>Even and Odd Numbers</h2>
-    
-    <!-- Button to trigger function -->
-    <button onclick="displayEvenOdd()">Find Even and Odd Numbers</button>
-    
-    <!-- Divs to display results -->
+    <button onclick="displayEvenOdd()">Even Odd Numbers</button>
     <div>
-        <h3>Even Numbers:</h3>
+        <h3>Even Number</h3>
         <p id="evenNumbers"></p>
     </div>
-    
+    <br>
     <div>
-        <h3>Odd Numbers:</h3>
+        <h3>Odd Numbers</h3>
         <p id="oddNumbers"></p>
     </div>
-
-    <!-- Internal JavaScript -->
     <script>
-        // Function to classify even and odd numbers using a for loop
-        function findEvenOdd(numbersArray) {
-            let evenNumbers = [];
-            let oddNumbers = [];
-
-            // Using a for loop to iterate through the array
-            for (let i = 0; i < numbersArray.length; i++) {
-                if (numbersArray[i] % 2 === 0) {
-                    evenNumbers.push(numbersArray[i]);
-                } else {
-                    oddNumbers.push(numbersArray[i]);
-                }
+        function evenOddNumbers(arrayNumber){
+          let evenNumbers  = [];
+          let oddNumbers = [];
+          for(let i = 0; i<arrayNumber.length; i++){
+            if(arrayNumber[i%2 === 0]){
+                   evenNumbers.push(arrayNumber[i]);
+            }else{
+                  oddNumbers.push(arrayNumbers[i]);
             }
-
-            return {
-                evenNumbers: evenNumbers,
-                oddNumbers: oddNumbers
-            };
+          }
+          return{
+            evenNumbers : evenNumbers,
+            oddNumbers: oddNumbers
+          }
         }
 
-        // Function to display the results in HTML
-        function displayEvenOdd() {
-            const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-            const result = findEvenOdd(numbersArray);
-            
-            // Display the results using innerHTML
-            document.getElementById("evenNumbers").innerHTML = result.evenNumbers.join(", ");
-            document.getElementById("oddNumbers").innerHTML = result.oddNumbers.join(", ");
+        function displayEvenOdd(){
+            let arrayNumber = [1,2,3,4,5,6,7,8,9,11,12,13,14];
+            const result = evenOddNumbers(arrayNumber);
+
+            document.getElementById('evenNumbers').innerHTML = result.evenNumbers.join(',');
+            document.getElementById('oddNumbers').innerHTML = result.oddNumbers.join(',')
         }
     </script>
 </body>
