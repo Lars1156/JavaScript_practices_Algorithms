@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even and Odd Numbers</title>
+</head>
+<body>
+    <h2>Even and Odd Numbers</h2>
+    
+    <!-- Button to trigger function -->
+    <button onclick="displayEvenOdd()">Find Even and Odd Numbers</button>
+    
+    <!-- Divs to display results -->
+    <div>
+        <h3>Even Numbers:</h3>
+        <p id="evenNumbers"></p>
+    </div>
+    
+    <div>
+        <h3>Odd Numbers:</h3>
+        <p id="oddNumbers"></p>
+    </div>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // Function to classify even and odd numbers using a for loop
+        function findEvenOdd(numbersArray) {
+            let evenNumbers = [];
+            let oddNumbers = [];
+
+            // Using a for loop to iterate through the array
+            for (let i = 0; i < numbersArray.length; i++) {
+                if (numbersArray[i] % 2 === 0) {
+                    evenNumbers.push(numbersArray[i]);
+                } else {
+                    oddNumbers.push(numbersArray[i]);
+                }
+            }
+
+            return {
+                evenNumbers: evenNumbers,
+                oddNumbers: oddNumbers
+            };
+        }
+
+        // Function to display the results in HTML
+        function displayEvenOdd() {
+            const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            const result = findEvenOdd(numbersArray);
+            
+            // Display the results using innerHTML
+            document.getElementById("evenNumbers").innerHTML = result.evenNumbers.join(", ");
+            document.getElementById("oddNumbers").innerHTML = result.oddNumbers.join(", ");
+        }
+    </script>
+</body>
+</html>
