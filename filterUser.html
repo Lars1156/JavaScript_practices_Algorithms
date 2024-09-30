@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>User List</h2>
+    <label for="age">Filter users by age (greater than):</label>
+    <input type="number" id="age" placeholder="Enter age">
+    <button onclick="filterUsers()">Filter</button>
+
+    <!-- Div to display filtered users -->
+    <div id="filteredUsers"></div>
+
+    <script>
+          const users = [
+            { name: 'John', age: 25, city: 'New York' },
+            { name: 'Jane', age: 30, city: 'Los Angeles' },
+            { name: 'Mike', age: 22, city: 'Chicago' },
+            { name: 'Alice', age: 35, city: 'Miami' }
+        ];
+        function filterUsers(){
+            const ageInput = document.getElementById('age').value;
+            const ageThreshold = parseInt(ageInput, 10);
+            const filtered = users.filter(user => user.age > ageThreshold);
+            const displayDiv = document.getElementById('filteredUsers');
+            let htmlContent = `<h3>Users older than ${ageThreshold}:</h3>`;
+            if (filtered.length > 0) {
+                htmlContent += '<ul>';
+                filtered.forEach(user => {
+                    htmlContent += `<li>${user.name}, Age: ${user.age}, City: ${user.city}</li>`;
+                });
+                htmlContent += '</ul>';
+            } else {
+                htmlContent += '<p>No users found with the given age condition.</p>';
+            }
+            displayDiv.innerHTML = htmlContent;
+        }
+    </script>
+</body>
+</html>
