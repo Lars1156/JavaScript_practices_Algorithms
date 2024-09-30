@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h2>Find the Prime Number or not</h2>
+      <label for="userArray">Enter numbers separated by commas:</label>
+      <input type="text" id="userArray" placeholder="e.g., 2,3,4,5,6,7">
+
+      <button onclick="findPrimeNumbers()">Find Prime Numbers</button>
+      
+      <div>
+        <h3>Prime Numbers:</h3>
+        <p id="primeNumbers"></p>
+    </div>
+
+    <script>
+        function isPrime(num){
+            if(num<=1) 
+            return false ;
+            for(let i= 2 ; i< Math.sqrt(num);  i++){
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+    
+        }
+         function findPrimeNumbers(){
+            const userInput = document.getElementById('userArray').value ; 
+            const numbersArray = userInput.split(',').map(Number);
+            const  primeNumbers = numbersArray.filter(isPrime);
+            document.getElementById("primeNumbers").innerHTML = primeNumbers.length > 0 
+                ? primeNumbers.join(", ") 
+                : "No prime numbers found.";
+         }
+    </script>
+</body>
+</html>
