@@ -16,7 +16,12 @@
         <h3>Prime Numbers:</h3>
         <p id="primeNumbers"></p>
     </div>
-
+     <h2>Find  prime Number 1 to 100 </h2>
+     <button onclick="findPrimesInRange()">Find Prime Numbers</button>
+    <div>
+        <h3>Prime Numbers:</h3>
+        <p id="primeNumber"></p>
+    </div>
     <script>
         function isPrime(num){
             if(num<=1) 
@@ -37,6 +42,18 @@
                 ? primeNumbers.join(", ") 
                 : "No prime numbers found.";
          }
+
+        //  Function to find prime num of 1 ti 100
+          function findPrimesInRange(){
+            let primes = [];
+            for (let i = 1; i <= 100; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            document.getElementById("primeNumber").innerHTML = primes.join(", ");
+          }
+
     </script>
 </body>
 </html>
