@@ -26,7 +26,7 @@
             if (filtered.length > 0) {
                 htmlContent += '<ul>';
                 filtered.forEach(product => {
-                    htmlContent += `<li>${product.name} - $${product.price}</li>`;
+                    htmlContent += `<li>${product.name} - $${product.price} - $${product.category}</li>`;
                 });
                 htmlContent += '</ul>';
             } else {
