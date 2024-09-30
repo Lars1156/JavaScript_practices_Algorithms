@@ -75,59 +75,59 @@ input {
 
     <script>
           // Function to calculate the distance between two locations
-function calculateDistance() {
-    const restaurantLocation = document.getElementById("restaurantLocation").value.trim();
-    const deliveryLocation = document.getElementById("deliveryLocation").value.trim();
+          function calculateDistance() {
+             const restaurantLocation = document.getElementById("restaurantLocation").value.trim();
+                const deliveryLocation = document.getElementById("deliveryLocation").value.trim();
     
-    if (restaurantLocation === "" || deliveryLocation === "") {
-        alert("Please fill in both locations.");
-        return false; // Prevent form submission
-    }
+                 if (restaurantLocation === "" || deliveryLocation === "") {
+                    alert("Please fill in both locations.");
+                 return false; // Prevent form submission
+                }
 
-    // You would typically call a distance API here (like Google Maps) to get the distance.
-    // Here we will simulate distance calculation for demonstration purposes.
+                 // You would typically call a distance API here (like Google Maps) to get the distance.
+                    // Here we will simulate distance calculation for demonstration purposes.
     
-    // Assuming each location is represented by latitude and longitude for simplicity
-    const locations = {
-        "123 Main St, City": { lat: 40.7128, lng: -74.0060 }, // Example coordinates
-        "456 Elm St, City": { lat: 40.7306, lng: -73.9352 },
-        "789 Oak St, City": { lat: 40.6501, lng: -73.9496 }
-    };
+                   // Assuming each location is represented by latitude and longitude for simplicity
+                   const locations = {
+                        "123 Main St, City": { lat: 40.7128, lng: -74.0060 }, // Example coordinates
+                        "456 Elm St, City": { lat: 40.7306, lng: -73.9352 },
+                        "789 Oak St, City": { lat: 40.6501, lng: -73.9496 }
+                    };
 
-    const restaurantCoords = locations[restaurantLocation];
-    const deliveryCoords = locations[deliveryLocation];
+                   const restaurantCoords = locations[restaurantLocation];
+                   const deliveryCoords = locations[deliveryLocation];
 
-    if (!restaurantCoords || !deliveryCoords) {
-        alert("One or both of the locations are not found in the database.");
-        return false; // Prevent form submission
-    }
+                if (!restaurantCoords || !deliveryCoords) {
+                  alert("One or both of the locations are not found in the database.");
+                   return false; // Prevent form submission
+                }
 
-    // Calculate the distance using the Haversine formula
-    const distance = getDistance(restaurantCoords.lat, restaurantCoords.lng, deliveryCoords.lat, deliveryCoords.lng);
+                // Calculate the distance using the Haversine formula
+                const distance = getDistance(restaurantCoords.lat, restaurantCoords.lng, deliveryCoords.lat, deliveryCoords.lng);
 
-    // Display the result
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = `Distance between <strong>${restaurantLocation}</strong> and <strong>${deliveryLocation}</strong>: ${distance.toFixed(2)} km`;
+                       // Display the result
+                const resultDiv = document.getElementById("result");
+                 resultDiv.innerHTML = `Distance between <strong>${restaurantLocation}</strong> and <strong>${deliveryLocation}</strong>: ${distance.toFixed(2)} km`;
 
-    return false; // Prevent form submission
-}
+               return false; // Prevent form submission
+        }
 
-// Haversine formula to calculate the distance between two latitude/longitude points
-function getDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius of the Earth in km
-    const dLat = degreesToRadians(lat2 - lat1);
-    const dLon = degreesToRadians(lon2 - lon1);
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            // Haversine formula to calculate the distance between two latitude/longitude points
+       function getDistance(lat1, lon1, lat2, lon2) {
+              const R = 6371; // Radius of the Earth in km
+              const dLat = degreesToRadians(lat2 - lat1);
+              const dLon = degreesToRadians(lon2 - lon1);
+              const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
               Math.cos(degreesToRadians(lat1)) * Math.cos(degreesToRadians(lat2)) *
               Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in km
-}
+             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+             return R * c; // Distance in km
+        }
 
-// Function to convert degrees to radians
-function degreesToRadians(degrees) {
-    return degrees * (Math.PI / 180);
-}
+            // Function to convert degrees to radians
+             function degreesToRadians(degrees) {
+                   return degrees * (Math.PI / 180);
+            }
 
     </script>
 </body>
