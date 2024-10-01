@@ -4,33 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add to card</title>
+    <style>
+         *{
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         }
+         .container {
+            width: 80%;
+            margin: 0 auto;
+        }.product {
+            border: 1px solid #ddd;
+            padding: 16px;
+           margin: 16px 0;
+           border-radius: 5px;
+        }
+
+         h3 {
+            margin: 0;
+        }
+
+        button.add-to-cart {
+             padding: 10px 20px;
+             background-color: #28a745;
+             color: white;
+             border: none;
+             border-radius: 4px;
+             cursor: pointer;
+        }
+        button.add-to-cart:hover {
+           background-color: #218838;
+        }
+        .cart {
+         text-align: right;
+         margin: 20px 0;
+         font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-       <div class="container">
-         <h1>Shooping card</h1>
-            <div class="cart">
-                <span>🛒 Cart (<span id="cart-count">0</span> items) - Total: $<span id="cart-total">0.00</span></span>
-            </div>
-            <div class="product">
-                <h3>Product 1</h3>
-                <p>Price: $10</p>
-                <button class="add-to-cart" data-price="10">Add to Cart</button>
-            </div>
-            <div class="product">
-                <h3>Product 2</h3>
-                <p>Price: $30</p>
-                <button class="add-to-cart" data-price="10">Add to Cart</button>
-            </div>
-            <div class="product"></div>
-                <h3>Product 4</h3>
-                <p>Price: $134</p>
-                <button class="add-to-cart" data-price="10">Add to Cart</button>
-            </div>
-            <div class="product">
-                <h3>Product 4</h3>
-                <p>Price: $100</p>
-                <button class="add-to-cart" data-price="10">Add to Cart</button>
-            </div>
-       </div>
+    <div class="container">
+        <h1>Shopping Cart</h1>
+    
+        <!-- Cart details -->
+        <div class="cart">
+          <span>🛒 Cart (<span id="cart-count">0</span> items) - Total: $<span id="cart-total">0.00</span></span>
+        </div>
+    
+        <!-- Product list -->
+        <div class="product">
+          <h3>Product 1</h3>
+          <p>Price: $10</p>
+          <button class="add-to-cart" data-price="10">Add to Cart</button>
+        </div>
+    
+        <div class="product">
+          <h3>Product 2</h3>
+          <p>Price: $20</p>
+          <button class="add-to-cart" data-price="20">Add to Cart</button>
+        </div>
+    
+        <div class="product">
+          <h3>Product 3</h3>
+          <p>Price: $30</p>
+          <button class="add-to-cart" data-price="30">Add to Cart</button>
+        </div>
+    
+        <div class="product">
+          <h3>Product 4</h3>
+          <p>Price: $40</p>
+          <button class="add-to-cart" data-price="40">Add to Cart</button>
+        </div>
+    
+        <!-- Total price display -->
+        <div class="cart-total">
+          <h3>Total: $<span id="cart-total-display">0.00</span></h3>
+        </div>
+      </div>
+      <script>
+        let cardCount = 0;
+        let cardTotal = 0;
+        const cartCountElement = document.getElementById('cart-count');
+        const cartTotalElement = document.getElementById('cart-total');
+        const cartTotalDisplay = document.getElementById('cart-total-display');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+           button.addEventListener('click', () => {
+           // Get the price of the clicked product
+            const productPrice = parseFloat(button.getAttribute('data-price'));
+    
+            // Update cart count and total price
+              cartCount++;
+              cartTotal += productPrice;
+
+            // Update the UI with new values
+              cartCountElement.innerText = cartCount;
+              cartTotalElement.innerText = cartTotal.toFixed(2); // Round to two decimal places
+             cartTotalDisplay.innerText = cartTotal.toFixed(2); // For the bottom total display
+         });
+       });
+      </script>
 </body>
 </html>
