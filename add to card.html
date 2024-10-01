@@ -1,109 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add to card</title>
-    <style>
-         *{
-            box-sizing: border-box;
-            padding: 0px;
-            margin: 0px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-         }
-         .container {
-            width: 80%;
-            margin: 0 auto;
-        }.product {
-            border: 1px solid #ddd;
-            padding: 16px;
-           margin: 16px 0;
-           border-radius: 5px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add and Remove from Cart</title>
+  
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
 
-         h3 {
-            margin: 0;
-        }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
 
-        button.add-to-cart {
-             padding: 10px 20px;
-             background-color: #28a745;
-             color: white;
-             border: none;
-             border-radius: 4px;
-             cursor: pointer;
-        }
-        button.add-to-cart:hover {
-           background-color: #218838;
-        }
-        .cart {
-         text-align: right;
-         margin: 20px 0;
-         font-size: 1.2em;
-        }
-    </style>
+    .product {
+      border: 1px solid #ddd;
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 5px;
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    button.add-to-cart, button.remove-from-cart {
+      padding: 10px 20px;
+      margin-right: 10px;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button.add-to-cart {
+      background-color: #28a745;
+    }
+
+    button.add-to-cart:hover {
+      background-color: #218838;
+    }
+
+    button.remove-from-cart {
+      background-color: #dc3545;
+    }
+
+    button.remove-from-cart:hover {
+      background-color: #c82333;
+    }
+
+    .cart {
+      text-align: right;
+      margin: 20px 0;
+    }
+
+    .cart-total {
+      text-align: right;
+      font-size: 1.5em;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Shopping Cart</h1>
-    
-        <!-- Cart details -->
-        <div class="cart">
-          <span>🛒 Cart (<span id="cart-count">0</span> items) - Total: $<span id="cart-total">0.00</span></span>
-        </div>
-    
-        <!-- Product list -->
-        <div class="product">
-          <h3>Product 1</h3>
-          <p>Price: $10</p>
-          <button class="add-to-cart" data-price="10">Add to Cart</button>
-        </div>
-    
-        <div class="product">
-          <h3>Product 2</h3>
-          <p>Price: $20</p>
-          <button class="add-to-cart" data-price="20">Add to Cart</button>
-        </div>
-    
-        <div class="product">
-          <h3>Product 3</h3>
-          <p>Price: $30</p>
-          <button class="add-to-cart" data-price="30">Add to Cart</button>
-        </div>
-    
-        <div class="product">
-          <h3>Product 4</h3>
-          <p>Price: $40</p>
-          <button class="add-to-cart" data-price="40">Add to Cart</button>
-        </div>
-    
-        <!-- Total price display -->
-        <div class="cart-total">
-          <h3>Total: $<span id="cart-total-display">0.00</span></h3>
-        </div>
-      </div>
-      <script>
-        let cardCount = 0;
-        let cardTotal = 0;
-        const cartCountElement = document.getElementById('cart-count');
-        const cartTotalElement = document.getElementById('cart-total');
-        const cartTotalDisplay = document.getElementById('cart-total-display');
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        addToCartButtons.forEach(button => {
-           button.addEventListener('click', () => {
-           // Get the price of the clicked product
-            const productPrice = parseFloat(button.getAttribute('data-price'));
-    
-            // Update cart count and total price
-              cartCount++;
-              cartTotal += productPrice;
+  <div class="container">
+    <h1>Shopping Cart</h1>
 
-            // Update the UI with new values
-              cartCountElement.innerText = cartCount;
-              cartTotalElement.innerText = cartTotal.toFixed(2); // Round to two decimal places
-             cartTotalDisplay.innerText = cartTotal.toFixed(2); // For the bottom total display
-         });
-       });
-      </script>
+    <!-- Cart details -->
+    <div class="cart">
+      <span>🛒 Cart (<span id="cart-count">0</span> items) - Total: $<span id="cart-total">0.00</span></span>
+    </div>
+
+    <!-- Product list -->
+    <div class="product">
+      <h3>Product 1</h3>
+      <p>Price: $10</p>
+      <button class="add-to-cart" data-price="10">Add to Cart</button>
+      <button class="remove-from-cart" data-price="10">Remove from Cart</button>
+    </div>
+
+    <div class="product">
+      <h3>Product 2</h3>
+      <p>Price: $20</p>
+      <button class="add-to-cart" data-price="20">Add to Cart</button>
+      <button class="remove-from-cart" data-price="20">Remove from Cart</button>
+    </div>
+
+    <div class="product">
+      <h3>Product 3</h3>
+      <p>Price: $30</p>
+      <button class="add-to-cart" data-price="30">Add to Cart</button>
+      <button class="remove-from-cart" data-price="30">Remove from Cart</button>
+    </div>
+
+    <div class="product">
+      <h3>Product 4</h3>
+      <p>Price: $40</p>
+      <button class="add-to-cart" data-price="40">Add to Cart</button>
+      <button class="remove-from-cart" data-price="40">Remove from Cart</button>
+    </div>
+
+    <!-- Total price display -->
+    <div class="cart-total">
+      <h3>Total: $<span id="cart-total-display">0.00</span></h3>
+    </div>
+  </div>
+
+  <!-- Internal JavaScript -->
+  <script>
+    // Variables to track the total number of items and total price
+    let cartCount = 0;
+    let cartTotal = 0;
+
+    // Selecting the elements for displaying cart count and total price
+    const cartCountElement = document.getElementById('cart-count');
+    const cartTotalElement = document.getElementById('cart-total');
+    const cartTotalDisplay = document.getElementById('cart-total-display');
+
+    // Get all "Add to Cart" and "Remove from Cart" buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const removeFromCartButtons = document.querySelectorAll('.remove-from-cart');
+
+    // Adding event listeners to each "Add to Cart" button
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Get the price of the clicked product
+        const productPrice = parseFloat(button.getAttribute('data-price'));
+        
+        // Update cart count and total price
+        cartCount++;
+        cartTotal += productPrice;
+
+        // Update the UI with new values
+        updateCartDisplay();
+      });
+    });
+
+    // Adding event listeners to each "Remove from Cart" button
+    removeFromCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Get the price of the clicked product
+        const productPrice = parseFloat(button.getAttribute('data-price'));
+
+        // Check if there are items in the cart before removing
+        if (cartCount > 0) {
+          cartCount--;
+          cartTotal -= productPrice;
+
+          // Ensure total doesn't go below 0
+          if (cartTotal < 0) cartTotal = 0;
+        }
+
+        // Update the UI with new values
+        updateCartDisplay();
+      });
+    });
+
+    // Function to update the cart count and total price display
+    function updateCartDisplay() {
+      cartCountElement.innerText = cartCount;
+      cartTotalElement.innerText = cartTotal.toFixed(2); // Round to two decimal places
+      cartTotalDisplay.innerText = cartTotal.toFixed(2); // For the bottom total display
+    }
+  </script>
 </body>
 </html>
