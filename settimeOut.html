@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greet(){
+            console.log("Hello this is javascript");
+            
+        }
+        setTimeout(greet , 3000);
+        console.log("This set Time Out function");
+        
+         function showDate(){
+            let dateTime = new Date();
+            let time = dateTime.toLocaleTimeString();
+
+            console.log(time)
+            setTimeout( showDate , 3000);
+         }
+         showDate();
+    </script>
+</body>
+</html>
