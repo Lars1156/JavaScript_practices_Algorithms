@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Second Largest in Array</title>
+</head>
+<body>
+
+    <h2>Enter numbers separated by commas:</h2>
+    <input type="text" id="userInput" placeholder="e.g., 3,7,2,9,5">
+    <button onclick="findAndDisplaySecondLargest()">Find Second Largest</button>
+
+    <div id="output"></div>
+
+    <script>
+       function findSecondLargest(arr) {
+            if (arr.length < 2) {
+               return null; 
+            }
+
+           let max = -Infinity;      
+           let secondMax = -Infinity; 
+
+            for (let i = 0; i < arr.length; i++) {
+               if (arr[i] > max) {
+                 secondMax = max;  
+                 max = arr[i];     
+                } else if (arr[i] > secondMax && arr[i] < max) {
+                  secondMax = arr[i]; 
+                }
+            }
+
+              return secondMax;
+        }
+        function findAndDisplaySecondLargest() {
+              const userInput = document.getElementById("userInput").value;  
+              const numArray = userInput.split(',').map(Number);  
+              const secondLargest = findSecondLargest(numArray);  
+
+            // Display the result
+            if (secondLargest !== null) {
+               document.getElementById("output").innerHTML = `The second largest number is: ${secondLargest}`;
+            } else {
+                document.getElementById("output").innerHTML = "Please enter at least two numbers.";
+            }
+        }
+
+    </script>
+</body>
+</html>
