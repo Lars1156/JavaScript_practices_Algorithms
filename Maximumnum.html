@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Maximum in Array</title>
+</head>
+<body>
+
+    <h2>Enter numbers separated by commas:</h2>
+    <input type="text" id="userInput" placeholder="e.g., 3,7,2,9,5">
+    <button onclick="findAndDisplayMax()">Find Max</button>
+
+    <div id="output"></div>
+
+    <script>
+           function findMax (arr){
+             if( arr.length === 0){
+                return null
+             }
+             let max = arr[0];
+             for(let i =0 ; i<arr.length ; i++){
+                if (arr[i] > max) {
+                    max = arr[i];  
+                }
+                return max;
+             }
+           }
+
+           function findAndDisplayMax(){
+             const userInput = document.getElementById("userInput").value;  
+             const numArray = userInput.split(',').map(Number); 
+             const maxNumber = findMax(numArray);  
+             document.getElementById("output").innerHTML = `The largest number is: ${maxNumber}`;  
+           }
+    </script>
+</body>
+</html>
