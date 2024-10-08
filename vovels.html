@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Vowels in a String</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Count Vowels in a String</h1>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="countVowels()">Count Vowels</button>
+    
+    <h2>Result: <span id="result"></span></h2>
+
+    <script>
+        function countVowels() {
+            
+            const inputString = document.getElementById("inputString").value;
+            const vowels = /[aeiouAEIOU]/g;
+            const matchedVowels = inputString.match(vowels);
+            const vowelCount = matchedVowels ? matchedVowels.length : 0;
+            document.getElementById("result").innerHTML = vowelCount;
+        }
+    </script>
+</body>
+</html>
