@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+        function isPrime(num){
+            if(num<=1){
+                return false
+            }
+            for(let i = 2 ; i<Math.sqrt(num); i++){
+                if(num % i ===0){
+                    return false
+                }
+                return true
+            }
+        }
+        const userInput = parseInt(prompt('Enter the number that can find Prime or Not'));
+        if(isNaN(userInput)){
+            console.log("Please Enter the Number ");    
+        }else{
+            if(isPrime(userInput)){
+                console.log(`${userInput }is prime Number`);
+                
+            }else{
+                console.log(`${userInput} is not Prime Number`);
+                
+            }
+        }
+      </script>
+</body>
+</html>
