@@ -48,7 +48,6 @@ insertAtPosition(value, position) {
         newNode.next = current; 
     }
 }
-
 print() {
     let current = this.head;
     const elements = [];
