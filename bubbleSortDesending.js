@@ -32,14 +32,9 @@ function processNestedArray(arr) {
             oddNumbers.push(sortedArray[i]);
         }
     }
-
-   
     const secondLargestEven = evenNumbers.length >= 2 ? evenNumbers[1] : null;
-
     const secondLargestOdd = oddNumbers.length >= 2 ? oddNumbers[1] : null;
-
     const sumEvenNumbers = evenNumbers.reduce((sum, num) => sum + num, 0);
-
     const sumOddNumbers = oddNumbers.reduce((sum, num) => sum + num, 0);
 
     return {
