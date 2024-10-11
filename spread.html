@@ -29,7 +29,18 @@
         const margedObject =  {...obj, ...obj1};
         console.log("merged objects:" ,  margedObject);
         
+        // Here is possible  we can combine the objects & array Using the spread operator (...), you can combine their values or properties when necessary.
+        const array = [1, 2, 3];
+        const obj2 = { ...{ values: array } };
+
+        console.log(obj2); 
+        const obj4 = {a:1, b:2, c:3};
+        const combine = {...array , ...obj4};
+        console.log("Combined the object , Array " , combine);
         
+// Output: { values: [1, 2, 3] }
+
+    
         
      </script>
 </body>
