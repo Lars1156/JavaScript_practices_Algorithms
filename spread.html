@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        const numbers = [1,2,3,5];
+        console.log(...numbers);
+
+        const arr1 = [1,2,3,4];
+        const arr2 = [...arr1];
+        console.log("copy array", arr2);
+
+        const n = [1,2,3,4];
+        const p = [1,12,3];
+        const margedArray = [...n,...p];
+        console.log("Merged Array", margedArray);
+
+        const obj ={
+            a:1, b:2
+        }
+        const obj1={
+            c:3,
+            d:4
+        }
+        const margedObject =  {...obj, ...obj1};
+        console.log("merged objects:" ,  margedObject);
+        
+        
+        
+     </script>
+</body>
+</html>
