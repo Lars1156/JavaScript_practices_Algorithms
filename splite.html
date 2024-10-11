@@ -26,6 +26,13 @@
         const arr = ['hii','this', 'is', 'kishan'];
         const result = arr.join(' ');
         console.log("Using join concate sentance" , result);
+
+        const deepNestedArray = [[1, 2], [3, [4, 5]], [6, [7, [8, 9]]]];
+        const flattenedArray = deepNestedArray.flat(Infinity);
+        const result1 = flattenedArray.join('-');
+        console.log(result1);
+        
+
         
         
      </script>
