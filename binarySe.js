@@ -14,7 +14,8 @@ function binarySearch(arr,target){
     }
     return -1
 }
-
+// Binary Search is perfromed only the sorted data, they will print the target value and
+// index number of target value.
 const numbers = [11,3,1,67,5,6];
 numbers.sort((a,b)=>a-b);
 console.log("Sorted Array: ", numbers);
