@@ -20,3 +20,18 @@ if (index !== -1) {
 } else {
     console.log(`Target ${target} not found in the array.`);
 }
+
+// Find the User  from array object using Find()
+
+const users = [
+    { id: 1, name: 'John Doe', age: 25 },
+    { id: 2, name: 'Jane Smith', age: 30 },
+    { id: 3, name: 'Emily Johnson', age: 22 }
+];
+const targetId = 2;
+const user = users.find(user=>user.id === targetId);
+if (user) {
+    console.log('User found:', user);
+} else {
+    console.log('User not found');
+}
