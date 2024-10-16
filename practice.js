@@ -30,4 +30,29 @@ const rl = readline.createInterface({
     rl.close();
   });
 
+
+  // 3D Array Example
+let array3D = [
+    [
+      [1, 2, 3],
+      [4, 5, 6]
+    ],
+    [
+      [7, 8, 9],
+      [10, 11, 12]
+    ]
+  ];
+  
+  // Function to display the 3D array
+  function display3DArray(arr) {
+    arr.forEach((layer, index) => {
+      console.log(`Layer ${index + 1}:`);
+      layer.forEach(row => {
+        console.log(row.join(' '));  
+      });
+      console.log('\n');  
+    });
+  }
+  
+  display3DArray(array3D);
   
