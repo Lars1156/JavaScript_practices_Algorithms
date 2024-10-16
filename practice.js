@@ -56,3 +56,31 @@ let array3D = [
   
   display3DArray(array3D);
   
+
+  function isArmstrongNumber(num) {
+    let sum = 0;
+    const digits = num.toString().split('');
+    const numDigits = digits.length;
+
+    for (let i = 0; i < digits.length; i++) {
+        sum += Math.pow(parseInt(digits[i]), numDigits);
+    }
+
+    return sum === num;
+}
+
+function findArmstrongNumbers(arr) {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (isArmstrongNumber(arr[i])) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+
+// Example array
+const numbers = [153, 370, 371, 9474, 9475, 123];
+const armstrongNumbers = findArmstrongNumbers(numbers);
+
+console.log("Armstrong numbers:", armstrongNumbers);
