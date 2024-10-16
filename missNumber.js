@@ -38,3 +38,50 @@ function bubbleSort(arr){
 }
 bubbleSort(people);
 console.log(people);
+
+// Developed the tree and perfrom the  bsf and dsf on the node
+
+class treeNode{
+    constructor(value){
+        this.value= value;
+        this.children = [];
+    }
+      addChild(childNode) {
+        this.children.push(childNode);
+    }
+}
+
+ class Tree{
+    constructor(rootNode){
+        this.root = new treeNode(rootNode)
+    }
+    dfs(node = this.root) {
+        console.log(node.value); 
+        for (const child of node.children) {
+            this.dfs(child); 
+        }
+    }
+    bsf(){
+        const queue = [this.root];
+
+        while (queue.length > 0) {
+            const node = queue.shift(); 
+            console.log(node.value);
+            queue.push(...node.children);
+        }
+ 
+    }
+}   
+const myTree = new Tree('Root');
+const child1 = new treeNode('Child 1');
+const child2 = new treeNode('Child 2');
+
+myTree.root.addChild(new treeNode('GrandChild 1'));
+myTree.root.addChild(new treeNode('Grand Child 2'));
+myTree.root.addChild(new treeNode('GrandChild 3'));
+
+console.log('Depth-First Search (DFS):');
+myTree.dfs();
+
+console.log('Breadth-First Search (BFS):');
+myTree.bsf();
