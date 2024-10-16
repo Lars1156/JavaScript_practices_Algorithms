@@ -85,3 +85,63 @@ myTree.dfs();
 
 console.log('Breadth-First Search (BFS):');
 myTree.bsf();
+
+// Develpoed the Queue And Perfromed the all opration it 
+class NumberQueue{
+    constructor(numbers = []){
+        this.item = [];
+        this.enqueArray (numbers) 
+    }
+    enque(number){
+        if (typeof number === 'number') {
+            this.item.push(number)
+            console.log(`${number} add the number queue`);           
+        }else{
+            console.log('Plese enter the vaild Number of enquee');          
+        }
+    }
+    enqueArray(numbers){
+        numbers.forEach(number => this.enque(number));
+    }
+    dequeue() {
+        if (this.isEmpty()) {
+            console.log('Queue is empty, cannot dequeue.');
+            return null;
+        }
+        const removedItem = this.item.shift(); 
+        console.log(`${removedItem} removed from the queue.`);
+        return removedItem; 
+    }
+    peek(){
+        if (this.isEmpty()) {
+            console.log('Queue is Emapty');
+            return null
+        }
+        return this.item[0];
+    }
+    isEmpty() {
+        return this.item.length === 0; 
+    }
+    size() {
+        return this.item.length;
+    }
+
+    display() {
+        if (this.isEmpty()) {
+            console.log('Queue is empty.');
+            return;
+        }
+        console.log('Queue contents:', this.item.join(' <- '));
+    }
+
+}
+const initialNumbers = [10, 20, 30, 40]; 
+const numberQueue = new NumberQueue(initialNumbers);
+numberQueue.display();
+console.log('Fronte of the Queue: ', numberQueue.peek());
+numberQueue.dequeue();
+numberQueue.dequeue();
+numberQueue.display();
+console.log('Size of the Queue', numberQueue.size());
+numberQueue.dequeue(50);
+numberQueue.display();
