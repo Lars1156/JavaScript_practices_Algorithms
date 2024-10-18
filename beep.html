@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Flow Example</title>
+</head>
+<body>
+    <div id="output"></div> <!-- Div to display output -->
+    <script>
+        // Function to simulate data flow
+        function flowData() {
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += "Data is flowing...<br>"; // Append message
+        }
+
+        // Function to play a beep sound
+        function playBeep() {
+            const audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            audio.play();
+        }
+
+        // Start data flow every 1000 milliseconds (1 second)
+        const dataFlowInterval = setInterval(flowData, 1000);
+
+        // Stop the data flow and play beep sound after 5 minutes (300,000 milliseconds)
+        setTimeout(() => {
+            clearInterval(dataFlowInterval); // Stop the data flow
+            playBeep();                       // Play beep sound
+            const outputDiv = document.getElementById('output');
+            outputDiv.innerHTML += "Data flow stopped. Beep!<br>"; // Append stop message
+        }, 5 * 60 * 1000); 
+    </script>
+</body>
+</html>
