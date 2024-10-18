@@ -1,3 +1,5 @@
+const { title } = require("process");
+
 const complexObj = {
     gym: {
         name: "Absolute Fitness Club",
@@ -46,3 +48,21 @@ function printProperties(object) {
 }
 
 printProperties(complexObj);
+
+const book = {
+    title: "1984",
+    author: "George Orwell",
+    year: 1949,
+    genres: ["Dystopian", "Political Fiction"],
+    displayInfo: function() {
+        console.log(`${this.title} by ${this.author}, published in ${this.year}`);
+    },
+};
+
+console.log(book.title);
+book.year = 1950
+console.log(book.year);
+book.publisher = "Kishan & Tanisq"
+console.log("Publisher", book.publisher);
+
+book.displayInfo()
