@@ -1,3 +1,5 @@
+const { atob } = require("buffer");
+
 function reverserArray (arr){
     let reversedArray = [];
     let evenNum = [];
@@ -24,4 +26,24 @@ console.log("Reversed Array ", result.reversedArray);
 console.log("Even Number" , result.evenNum);
 console.log("Odd Number", result.oddNum);
 
-
+function findSecondLargest(arr) {
+    if (arr.length < 2) {
+      return null; // Not enough elements for second largest
+    }
+  
+    let first = -Infinity, second = -Infinity;
+  
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > first) {
+        second = first;
+        first = arr[i];
+      } else if (arr[i] > second && arr[i] !== first) {
+        second = arr[i];
+      }
+    }
+  
+    return second === -Infinity ? null : second;
+  }
+  const number = [2, 3, 1, 5, 3, 6];
+  console.log("Secound large Number ",findSecondLargest(number)); 
+  
