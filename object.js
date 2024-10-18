@@ -1,4 +1,5 @@
 const { title } = require("process");
+const { Writable } = require("stream");
 
 const complexObj = {
     gym: {
@@ -66,3 +67,29 @@ book.publisher = "Kishan & Tanisq"
 console.log("Publisher", book.publisher);
 
 book.displayInfo()
+
+const user = {
+    name: "Jane Doe",
+    age: 30,
+    aadhaarNumber: "1234-5678-9012",
+    location: "New York"
+};
+Object.defineProperty(user, 'aadhaarNumber', {
+    writable: false,  // Prevents the value from being changed
+    configurable: false, // Prevents the property from being deleted
+});
+
+Object.defineProperty(user, 'location', {
+    writable: false,
+    configurable: false,
+});
+console.log( user.name);
+user. location = "pratik";
+console.log("is change or not" , user.location);
+
+console.log(user.aadhaarNumber);
+user.aadhaarNumber = "3456223456";
+console.log('Updated Adhar Number', user.aadhaarNumber);
+
+delete user.aadhaarNumber ; 
+console.log( ' is deleted or not',  user.aadhaarNumber);
