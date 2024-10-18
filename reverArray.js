@@ -1,5 +1,3 @@
-const { atob } = require("buffer");
-
 function reverserArray (arr){
     let reversedArray = [];
     let evenNum = [];
