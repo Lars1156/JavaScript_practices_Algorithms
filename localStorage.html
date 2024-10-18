@@ -8,23 +8,38 @@
 <body>
     <h1>LocalStorage Example</h1>
     <input type="text" id="username" placeholder="Enter your username">
+    <input type="number" id="age" placeholder="Enter your age">
     <button id="save">Save Username</button>
     <button id="load">Load Username</button>
     <button id="clear">Clear Username</button>
     <p id="message"></p>
     <script>
-        document.getElementById('save').addEventListener('click' ,function(){
+        document.getElementById('save').addEventListener('click' , function(){
             const username = document.getElementById('username').value;
-            localStorage.setItem('username', username);
-            document.getElementById('message').innerHTML = 'User Will Saved!'
+            const age = parseInt(document.getElementById('age').value);
+            
+            const userInfo = {
+                username :username ,
+                age:age
+            };
+            const userInfoJson = JSON.stringify(userInfo);
+            localStorage.setItem('userInfo', userInfo);
+            document.getElementById('message').innerHTML = 'Saved UserINfo!';
         });
-        document.getElementById('load').addEventListener('click', function(){
-            const username = localStorage.getItem('username')
-            document.getElementById('message').innerHTML = username ? `Loaded Username: ${username}` : 'No username found!';
+        document.getElementById('load').addEventListener('click', function() {
+            // Retrieve the JSON string from LocalStorage
+            const userInfoJson = localStorage.getItem('userInfo');
+            if (userInfoJson) {
+                const userInfo = JSON.parse(userInfoJson);
+                document.getElementById('message').innerText = `Loaded User Info: Username: ${userInfo.username}, Age: ${userInfo.age}`;
+            } else {
+                document.getElementById('message').innerText = 'No user info found!';
+            }
         });
-        document.getElementById('clear').addEventListener('click', function() {
-            localStorage.removeItem('username');
-            document.getElementById('message').innerText = 'Username cleared!';
+
+        document.getElementById('clear').addEventListener('click' , function(){
+            localStorage.removeItem('userInfo');
+            document.getElementById('message').innerText = 'User info cleared!';
         });
     </script>
 </body>
