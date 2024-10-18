@@ -28,7 +28,7 @@ console.log("Odd Number", result.oddNum);
 
 function findSecondLargest(arr) {
     if (arr.length < 2) {
-      return null; // Not enough elements for second largest
+      return null;
     }
   
     let first = -Infinity, second = -Infinity;
@@ -46,4 +46,30 @@ function findSecondLargest(arr) {
   }
   const number = [2, 3, 1, 5, 3, 6];
   console.log("Secound large Number ",findSecondLargest(number)); 
+
+  function sumOfArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    return sum;
+  }
+  console.log("Sum of Array ",  sumOfArray(number));
+  
+  
+  function isPalindrome(str) {
+    let cleanedStr = str.toLowerCase();
+  
+    let length = cleanedStr.length;
+    for (let i = 0; i < length / 2; i++) {
+      if (cleanedStr[i] !== cleanedStr[length - 1 - i]) {
+        return false; 
+      }
+    }
+  
+    return true;
+  }
+
+  const inputString = "Nitin";
+  console.log(isPalindrome(inputString)); 
   
