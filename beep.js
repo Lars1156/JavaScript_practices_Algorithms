@@ -9,6 +9,7 @@ function flowData() {
   }
     const dataFlowInterval = setInterval(flowData, 1000);
   
+      // After the break, restart data flow
   setTimeout(() => {
     clearInterval(dataFlowInterval);
     playBeep();               
