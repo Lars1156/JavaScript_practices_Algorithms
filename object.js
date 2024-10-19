@@ -93,3 +93,29 @@ console.log('Updated Adhar Number', user.aadhaarNumber);
 
 delete user.aadhaarNumber ; 
 console.log( ' is deleted or not',  user.aadhaarNumber);
+
+// Opps in javascript
+class Vehicle {
+    constructor(brand, model) {
+        this.brand = brand;
+        this.model = model;
+    }
+
+    displayInfo() {
+        return `${this.brand} ${this.model}`;
+    }
+}
+
+class Car extends Vehicle {
+    constructor(brand, model, doors) {
+        super(brand, model); 
+        this.doors = doors;
+    }
+
+    displayInfo() {
+        return `${super.displayInfo()} with ${this.doors} doors`;
+    }
+}
+
+const myCar = new Car('Honda', 'Civic', 4);
+console.log(myCar.displayInfo()); 
