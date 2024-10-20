@@ -34,4 +34,17 @@ const fetchData = new Promise((resolve, reject) => {
         .catch(error => {
           console.error('Error fetching user details:', error);
         });
+        fetchData
+        .then(data => {
+          console.log('Step 1:', data);
+          return 'Processed data';  // Passes to the next .then()
+        })
+        .then(result => {
+          console.log('Step 2:', result);
+          return 'Final result';
+        })
+        .then(final => {
+          console.log('Step 3:', final);
+        })
+        .catch(error => console.error('Error:', error));
       
