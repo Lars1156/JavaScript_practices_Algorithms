@@ -21,3 +21,28 @@ const newStudent ={
     name:"particular"
 }
 console.log("" , newStudent);
+const person = {
+    name: 'John',
+    age: 30
+};
+
+const { name: personName, age: personAge } = person;
+console.log(personName); 
+console.log(personAge);
+
+const newPerson = {
+     ...person, 
+     lastName : "barke", 
+     address: "newYork"
+}
+console.log(newPerson);
+
+function print([first, second] , third) {
+    console.log(first);
+    console.log(second);
+    console.log( third);
+
+}
+
+
+print([10, 20] , 30); 
