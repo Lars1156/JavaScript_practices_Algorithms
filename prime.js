@@ -46,5 +46,29 @@ console.log("**Even Numbers" , evenNumber);
 console.log("**Odd Numbers" , oddNumber);
 
 
+// Secound Largest Numbers In Array 
+function largestNumber(arr){
+    if (arr.length<2) {
+        return 'Array must have at least two elements'
+    }
+    let largest = -Infinity;
+    let secoundLargest = -Infinity;
+    for(let i = 0 ; i< arr.length; i++){
+        if(arr[i]>largest){
+            secoundLargest = largest;
+            largest = arr[i]
+        }else if (arr[i] > secoundLargest && arr[i] !== largest) {
+            secoundLargest = arr[i];
+        }
+    }
+    if (secoundLargest === -Infinity) {
+        return "There is no second largest number (all elements may be equal).";
+    }
+
+    return secoundLargest;
+}
+
+const number = [10, 5, 20, 15, 20, 5];
+console.log("Second largest number:",largestNumber(number));
 
 
