@@ -70,5 +70,27 @@ function largestNumber(arr){
 
 const number = [10, 5, 20, 15, 20, 5];
 console.log("Second largest number:",largestNumber(number));
+// Lahest Nmber using the 
+function largestNum(arr){
+    if (arr.length===0) {
+        return 'Largest Number of the Array '
+    }
+    let largest = arr[0];
+    for(let i = 0; i<arr.length; i++){
+        if (arr[i]>largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+console.log("Largest number:", largestNum(number)); 
+// Find the Missing Number of Value 
 
-
+function missingNumber (arr, n ){
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((sum, num) => sum + num, 0);
+    return expectedSum - actualSum;
+}
+const arr = [1, 2, 4, 5, 6];
+const n = 6;
+console.log("Missing number:", missingNumber(arr, n));
