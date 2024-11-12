@@ -94,3 +94,42 @@ function missingNumber (arr, n ){
 const arr = [1, 2, 4, 5, 6];
 const n = 6;
 console.log("Missing number:", missingNumber(arr, n));
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// Function to count vowels in a string
+function countVowels(str) {
+    const vowels = 'aeiouAEIOU';
+    let count = 0;
+
+    for (let char of str) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+rl.question('Enter a string to count the vowels: ', (inputString) => {
+    console.log("Number of vowels:", countVowels(inputString));
+
+    rl.close();
+});
+// String Plalindrom or not
+function isPalindrome(str) {
+    const cleanedStr = str.replace(/\s+/g, '').toLowerCase();
+    const reversedStr = cleanedStr.split('').reverse().join('');
+    return cleanedStr === reversedStr;
+}
+
+rl.question('Enter a string to check if it is a palindrome: ', (inputString) => {
+    console.log("Is palindrome:", isPalindrome(inputString));
+
+    rl.close();
+});
